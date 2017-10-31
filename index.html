@@ -1,0 +1,252 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name=viewport content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name=format-detection content="telephone=no">
+    <title>有书2.0</title>
+    <link rel="stylesheet" type="text/css" href="http://media.youshu.cc/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/alertBox.css">
+</head>
+<body>
+
+<button id="tj" data-type="submit">事件按钮01</button>
+<button id="tj1" data-type="submit">事件按钮02</button>
+<button id="begin" data-type="submit">跳转按钮1</button>
+<button id="begin2">跳转按钮2</button>
+<button id="begin3">alert提示按钮</button>
+<button id="begin4">confirm提示按钮</button>
+<button id="begin5">分享提示按钮</button>
+<button onclick=aa()>加载提示按钮</button>
+
+<!-- <button onclick="ap1.play()">ap.play()</button>
+<button onclick="ap1.play(120)">ap.play(100)</button>
+<button onclick="ap1.pause()">ap.pause()</button>
+<button onclick="ap1.toggle()">ap.toggle()</button>
+<button onclick="ap1.volume(0.1)">ap.volume(0.1)</button>
+<button onclick="ap1.addMusic([
+    {
+        title: 'あっちゅ～ま青春!',
+        author: '七森中☆ごらく部',
+        url: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.mp3',
+        pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+        lrc: 'あっちゅ～ま青春!.lrc'
+    },
+    {
+        title: 'secret base~君がくれたもの~',
+        author: '茅野愛衣',
+        url: 'http://devtest.qiniudn.com/secret base~.mp3',
+        pic: 'http://devtest.qiniudn.com/secret base~.jpg',
+        lrc: 'secret base~君がくれたもの~.lrc'
+    },
+    {
+        title: '回レ！雪月花',
+        author: '小倉唯',
+        url: 'http://devtest.qiniudn.com/回レ！雪月花.mp3',
+        pic: 'http://devtest.qiniudn.com/回レ！雪月花.jpg',
+        lrc: '回レ！雪月花.lrc'
+    }
+])">ap.addMusic(...)</button> -->
+
+<div id="player2" class="aplayer"></div>
+
+
+<button onclick="aaa()">播放</button>
+<button onclick="bbb()">暂停</button>
+
+<script type="text/javascript" src="js/ys.2.0.min.js"></script>
+<script type="text/javascript">
+
+var aaa,bbb;
+(function(){
+
+
+
+    ys.init({
+        dbId: "a81d35695a2820f66723b11d99cfb610",  // 百度统计
+        logErrorType: "课程订阅",
+        isLoadJq: true,
+        isLoadWx: true,
+        isLoadMp3: true,
+        isLoadMc: true,
+        success: function(){
+            
+            // console.log("ok")
+
+            // $("#tj").on("click",function(){
+            //     alert("ssss")
+            // })
+
+            ys.jumpToAppMc({
+                button: "tj1",
+                data:{
+                    type: "note",
+                    id: 99,
+                    ext: 0
+                }
+            })
+
+            var mp3 = ys.mp3Player({
+                title: "周日早读 - 一起读书",
+                author: "有书共读",
+                pic: "http://readooapi.youshu.cc/public/images/youshu.png",
+                autoplay: false,
+                mode: "order", //circulation(loop default),random,single,order(no loop)
+                src: "http://devtest.qiniudn.com/Preparation.mp3"
+            })
+
+            // var mp3 = ys.mp3Player("http://devtest.qiniudn.com/Preparation.mp3")
+
+            // mp3.on('play', function () {
+            //     console.log('play');
+            // });
+            // mp3.on('pause', function () {
+            //     console.log('pause');
+            // });
+            // mp3.on('canplay', function () {
+            //     console.log('canplay');
+            // });
+            // mp3.on('playing', function () {
+            //     // console.log('playing');
+
+            // });
+
+            setTimeout(function(){
+                console.log(mp3.audio.currentTime)
+                console.log(mp3.audio.duration)
+            },5000)
+            // mp3.on('ended', function () {
+            //     console.log('ended');
+            // });
+            // mp3.on('error', function () {
+            //     console.log('error');
+            // });
+            // mp3.play(100)
+            // mp3.pause()
+            // mp3.toggle()
+            // mp3.volume(0.1)
+            // mp3.addMusic([
+                // {
+                //     title: '',
+                //     author: '',
+                //     url: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.mp3',
+                //     pic: '',
+                //     lrc: ''
+                // },
+                // {
+                //     title: '',
+                //     author: '',
+                //     url: 'http://devtest.qiniudn.com/secret base~.mp3',
+                //     pic: '',
+                //     lrc: ''
+                // },
+                // {
+                //     title: '',
+                //     author: '',
+                //     url: 'http://devtest.qiniudn.com/回レ！雪月花.mp3',
+                //     pic: '',
+                //     lrc: ''
+                // }
+                // ])
+            
+        }
+    })
+
+
+
+    // ys.alert({
+    //     button: "begin3",
+    //     // close: true,
+    //     tips: "同步完成",
+    //     // buttoncolor: "#f00",
+    //     confirm: true,
+    //     success: function(data){
+    //         console.log("确定1")
+    //     }
+    // })
+
+    
+
+    // ys.appAction({
+    //     type: "join",                 // SHARE,JOIN
+    //     v: "2.9.0",                  // 版本号
+    //     data: {
+    //         usage_type: "usage_type",           // JOIN类型
+    //         plan_id: "plan_id",              // JOIN计划ID
+    //         product_id: "product_id",           // JOIN苹果支付ID
+    //         plan_price: "plan_price",           // JOIN价格
+    //         price_id: "price_id"              // JOINprice_id
+    //     },
+    //     // data: {
+    //     //     platform: "platform",             // SHARE类型0，[1,2,3,4]
+    //     //     shareType: "3",            // SHARE分享类型 [1,2,3] 1:链接，2：APP生成图片，3：传图片（支持base64）
+    //     //     plan_id: "plan_id",              // JOIN计划ID
+    //     //     share_title: "share_title",         // SHARE标题
+    //     //     share_content: "share_content",       // SHARE内容
+    //     //     share_url: "share_url",           // SHARE链接
+    //     //     share_img_url: "share_img_url"        // SHARE图片
+    //     // }
+    // })
+
+    ys.confirm({
+        button: "begin4",
+        close: true,
+        tips: "确定删除？",
+        success: function(data){
+            console.log("确定2")
+        },
+        cancel: function(){
+            console.log("取消3")
+        }
+    })
+
+    ys.shareTips({
+        button: "begin5",
+        title: "<b></b>点击分享好友及朋友圈给<span class=green> 好友及朋友圈 </span>好友及朋友圈",
+        // title: "1111111111111111",
+        // type: 1
+    })
+
+    ys.dbEvent({
+        button: "tj",
+        category: "",
+        action: "",
+        opt_label: "",
+        opt_value: ""
+    })
+
+    // ys.ajax({
+    //     url: "http://192.168.50.83:3000/fastread/getlist",
+    //     type: "post",
+    //     // withCredentials: true,
+    //     data: {
+    //         page: 1,
+    //         count: 5,
+    //         href: location.href
+    //     },
+    //     success: function(data){
+    //         console.log(data)
+    //     },
+    //     fail: function(){
+    //         alert("请求失败")
+    //     }
+    // })
+
+    ys.jumpToApp({
+        btn: "begin",
+        v: "2.4.0",
+        type: 24,
+        data: {
+            note_id: 19
+        }
+    })
+
+}())
+
+    function aa(){
+        ys.loading()
+    }
+</script>
+</body>
+</html>
